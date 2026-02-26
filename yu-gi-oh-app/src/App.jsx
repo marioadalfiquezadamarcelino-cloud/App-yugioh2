@@ -6,7 +6,7 @@ import Privacy from "./pages/Privacy/Privacy";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import News from "./pages/news/News";
-//import Chat from "../pages/chat/Chat";
+import Chat from "./pages/Chat/chat";
 
 function App() {
   return (
@@ -18,8 +18,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/deck" element={<Deck />} />
         <Route path="/about" element={<About />} />
-         <Route path="/news" element={<News />}/>
-
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/news" element={<News />}/>
         <Route path="/privacy" element={<Privacy />} />
       </Routes>
 

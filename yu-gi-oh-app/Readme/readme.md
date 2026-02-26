@@ -114,8 +114,10 @@ src/
 │ ├─ About/
 │ └─Privacy/
 │ └─News/
+│ └─Chat/
 | 
 ├─ data/
 │ └─ cards.json
+│ └─ firabase.js
 ├─ App.jsx
 └─ main.jsx
