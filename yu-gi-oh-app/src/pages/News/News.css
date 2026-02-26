@@ -1,0 +1,15 @@
+.news-container {
+
+  padding: 40px;
+  color: rgb(245, 244, 244);
+  text-align: center;
+
+}
+
+.rss-frame {
+
+  width: 100%;
+  height: 600px;
+  border: none;
+
+}
