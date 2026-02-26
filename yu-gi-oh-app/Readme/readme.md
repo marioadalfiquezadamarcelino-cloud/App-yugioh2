@@ -113,6 +113,7 @@ src/
 │ ├─ Deck/
 │ ├─ About/
 │ └─Privacy/
+│ └─News/
 | 
 ├─ data/
 │ └─ cards.json
