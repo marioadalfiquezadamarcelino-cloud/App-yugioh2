@@ -24,6 +24,15 @@ const Home = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
+      <img 
+  src="/images/mangagame.png" 
+  alt="Logo"
+  style={{ 
+    width: "250px", 
+    display: "block", 
+    margin: "0 auto 20px" 
+  }}
+/>
       <div className="cards-container">
         {filteredCards.map(card => (
           <Card
