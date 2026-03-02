@@ -35,15 +35,26 @@ The main objective is to apply best practices for reusable components, clean cod
 
 ---
 
-## Home Page
+## 🏠 Home Page
 
-The home page displays a responsive grid of cards generated from an array of JSON objects.
+The Home page is the main entry point of the application.
 
-Clicking on a card opens a modal window with complete information: image, name, type, effect, and ATK and DEF values.
+It dynamically loads card data from Firebase Firestore, which is structured as a JSON-based collection of objects. Each card contains properties such as name, attack, defense, category, image, and description.
 
-The page is accessible from:
-- `/`
-- `/home`
+Features included:
+
+- Dynamic data fetching from Firebase
+- JSON object array rendering
+- Category filtering system
+- Search functionality by card name
+- State management using React useState
+- Reusable Card component receiving props
+- Responsive grid layout
+
+This page demonstrates:
+- useState for search and filtering
+- useEffect for Firestore data fetching
+- Props communication between components
 
 ---
 
@@ -99,6 +110,23 @@ https://woko.agency/blog/monitorizar-evaluar-experiencia-usuario/
 The project includes a News page that connects to an RSS feed related to Yu-Gi-Oh news.
 
 This fulfills the RSS requirement of the assignment.
+
+
+## ⚠ Important
+
+To run the project correctly, you must navigate into the project folder:
+
+cd yu-gi-oh-app
+
+Then install dependencies:
+
+npm install
+
+Then start the development server:
+
+npm run dev
+
+
 
 ## Project Structure
 

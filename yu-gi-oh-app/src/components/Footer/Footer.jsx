@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
-
+import { FaFacebook, FaTwitter, FaInstagram, FaGithub } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="footer">
@@ -10,13 +10,43 @@ const Footer = () => {
         <Link to="/privacy">Privacy & Cookies</Link> | Terms
       </p>
 
-      <div className="social">
-        <a href="https://twitter.com" target="_blank">🐦 Twitter</a>
-        <a href="https://facebook.com" target="_blank">📘 Facebook</a>
-        <a href="https://instagram.com" target="_blank">📷 Instagram</a>
-        <a href="https://github.com/marioadalfiquezadamarcelino-cloud/App-yugioh" target="_blank">😸 Githud</a>
-      </div>
+    <div className="social-icons">
+
+  <a 
+    href="https://facebook.com/TUUSUARIO" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    <FaFacebook size={25} />
+  </a>
+
+  <a 
+    href="https://twitter.com/TUUSUARIO" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    <FaTwitter size={25} />
+  </a>
+
+  <a 
+    href="https://instagram.com/TUUSUARIO" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    <FaInstagram size={25} />
+  </a>
+
+  <a 
+    href="https://github.com/marioadalfiquezadamarcelino-cloud/App-yugioh" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    <FaGithub size={25} />
+  </a>
+
+</div>
     </footer>
+ 
   );
 };
 

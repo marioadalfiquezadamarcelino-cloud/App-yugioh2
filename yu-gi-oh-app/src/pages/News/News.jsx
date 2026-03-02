@@ -14,7 +14,6 @@ const news = () => {
                 title="Yu-Gi-Oh RSS"
                 src="https://www.yugioh-card.com/en/feed/"
                 className="rss-frame">
-
             </iframe>
 
             <p>New updates, events, banned cards in the TCG,OCG  in dual master</p>
