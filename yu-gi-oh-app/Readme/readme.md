@@ -1,10 +1,8 @@
 # Yu-Gi-Oh! React App 🃏
 
-A web application developed with React JS that displays a collection of cards
-inspired by the Yu-Gi-Oh! game.
+Yu-Gi-Oh is a React web application that allows users to explore and manage a collection of Yu-Gi-Oh style cards. The project demonstrates modern frontend development using React components, routing, state management and integration with Firebase Firestore.
 
-Users can explore the cards, view detailed information, and build
-their own deck following the game's rules.
+Users can search cards, build their own deck, and manage cards using a CRUD system.
 
 ---
 
@@ -35,7 +33,7 @@ The main objective is to apply best practices for reusable components, clean cod
 
 ---
 
-## 🏠 Home Page
+## Home Page
 
 The Home page is the main entry point of the application.
 
@@ -60,12 +58,13 @@ This page demonstrates:
 
 ## Technologies Used
 
-- React JS
-- Vite
+- React
+- React Router
+- Firebase Firestore
 - JavaScript (ES6)
-- HTML5
-- CSS3
-- Flexbox and Media Queries
+- CSS
+- JSON data
+- RSS API
 
 ---
 
@@ -75,6 +74,24 @@ This page demonstrates:
 - React Router DOM: https://reactrouter.com/
 - Vite: https://vitejs.dev/
 
+---
+ Features
+
+ Search cards by name
+
+ View a collection of cards
+
+ Add new cards to the database
+
+ Update existing cards
+
+ Delete cards
+
+ Build your own deck (max 3 copies per card)
+
+ RSS News page with Yu-Gi-Oh updates
+
+ Built using React components
 ---
 
 ## Resources and Tutorials
@@ -105,14 +122,14 @@ https://woko.agency/blog/monitorizar-evaluar-experiencia-usuario/
 
 ---
 
-## 📰 RSS News Page
+## RSS News Page
 
 The project includes a News page that connects to an RSS feed related to Yu-Gi-Oh news.
 
 This fulfills the RSS requirement of the assignment.
 
 
-## ⚠ Important
+## Important
 
 To run the project correctly, you must navigate into the project folder:
 
@@ -125,8 +142,6 @@ npm install
 Then start the development server:
 
 npm run dev
-
-
 
 ## Project Structure
 

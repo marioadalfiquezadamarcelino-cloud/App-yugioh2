@@ -1,27 +1,58 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../../components/Card/Card";
 import cardsData from "../../data/cards.json";
+import { collection, query, onSnapshot } from "firebase/firestore";
+import { db } from "../../data/firebase";
 import "./Deck.css";
 
 const Deck = () => {
 
+  // cartas desde Firebase
+  const [cards, setCards] = useState([]);
 
-  
-  // ESTADO  
+  // cartas en el deck
   const [deck, setDeck] = useState([]);
 
-  //  Máximo 3 copias por carta
+  // buscador
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // unir JSON + Firebase
+  const allCards = [...cardsData, ...cards];
+
+  // filtrar cartas
+  const filteredCards = allCards.filter(card =>
+    card.name?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // leer cartas desde Firestore
+  useEffect(() => {
+    const q = query(collection(db, "cards"));
+
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      setCards(
+        snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+      );
+    });
+
+    return unsubscribe;
+  }, []);
+
+  // máximo 3 copias
   const addToDeck = (card) => {
     const sameCards = deck.filter(c => c.id === card.id);
     if (sameCards.length >= 3) return;
+
     setDeck([...deck, card]);
   };
 
-  //  Contar copias de una carta
+  // contar copias
   const getCardCount = (id) =>
     deck.filter(card => card.id === id).length;
 
-  //  Eliminar una copia
+  // eliminar carta
   const removeFromDeck = (id) => {
     const index = deck.findIndex(card => card.id === id);
     if (index === -1) return;
@@ -33,41 +64,43 @@ const Deck = () => {
 
   return (
     <div className="deck-page">
+
       <h2>Build Your Deck</h2>
 
-      <div className="deck-container">
-        <h3>Available Cards</h3>
-        <div className="cards-container">
-          {cardsData.map(card => (
-            <Card
-              key={card.id}
-              name={card.name}
-              type={card.type}
-              effect={card.effect}
-              attack={card.attack}
-              defense={card.defense}
-              image={card.image}
-              onAdd={() => addToDeck(card)}
-            />
-          ))}
-        </div>
+      {/* buscador */}
+      <input
+        type="text"
+        placeholder="Search cards..."
+        className="search-input"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
 
-        <h3>Your Deck ({deck.length})</h3>
-        <div className="cards-container">
-          {deck.map((card, index) => (
-            <Card
-              key={`${card.id}-${index}`}
-              name={`${card.name} x${getCardCount(card.id)}`}
-              type={card.type}
-              effect={card.effect}
-              attack={card.attack}
-              defense={card.defense}
-              image={card.image}
-              onAdd={() => removeFromDeck(card.id)}
-            />
-          ))}
-        </div>
+      <h3>Available Cards</h3>
+
+      <div className="cards-container">
+        {filteredCards.map(card => (
+          <Card
+            key={card.id}
+            {...card}
+            onAdd={() => addToDeck(card)}
+          />
+        ))}
       </div>
+
+      <h3>Your Deck ({deck.length})</h3>
+
+      <div className="cards-container">
+        {deck.map((card, index) => (
+          <Card
+            key={`${card.id}-${index}`}
+            {...card}
+            name={`${card.name} x${getCardCount(card.id)}`}
+            onAdd={() => removeFromDeck(card.id)}
+          />
+        ))}
+      </div>
+
     </div>
   );
 };
